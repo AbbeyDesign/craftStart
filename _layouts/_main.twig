@@ -1,0 +1,23 @@
+{% extends "_layouts/_base" %}
+{% block website %}
+  <!doctype html>
+  <html class="no-js" lang="{{ currentSite.language }}">
+    <head>
+      {% include '_global/meta' ignore missing with {
+        object: entry
+      } %}
+    </head>
+    <body>
+      <header id="header" role="navigation" aria-label="Main">
+        {% include '_global/navigation' %}
+      </header>
+      {% block header %}{% endblock %}
+      <main id="mainContent" role="main" tabindex="0">
+        {% block content %}{% endblock %}
+      </main>
+      <footer id="footer" role="contentinfo">
+        {% include '_global/footer' %}
+      </footer>
+    </body>
+  </html>
+{% endblock %}

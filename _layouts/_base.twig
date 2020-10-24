@@ -1,0 +1,28 @@
+{#- SECURITY HEADERS ----#}
+{%- header "X-XSS-Protection: 1; mode=block" -%}
+{%- header "Content-Security-Policy:" -%}
+{%- header "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload" -%}
+{%- header "X-Frame-Options: SAMEORIGIN" -%}
+{%- header "X-Content-Type-Options: nosniff" -%}
+{%- header "Referrer-Policy: no-referrer" -%}
+{#- DEFAULT CSS ----#}
+{% css '/css/app.css' %}
+{#- DEFAULT JS ----#}
+{% js '/js/min/app.min.js' %}
+{% js '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' %}
+{% js %}
+WebFont.load({ google: { families: ['Bitter','Teko'] } });
+{% endjs %}
+{% include '_vendor/google_tagManager' with {
+  containerID : 'PHFMNFV'
+} %}
+{#- PLUGINS ----#}
+{{ adminbar({ entry: entry ?? null }) }}
+{#- HTML ----#}
+{% html at beginBody %}
+<span>
+  <a class="show-on-focus" href="#mainContent">Skip to Main Content</a>
+</span>
+{% endhtml %}
+{#- WEBSITE ----#}
+{% block website %}{% endblock %}

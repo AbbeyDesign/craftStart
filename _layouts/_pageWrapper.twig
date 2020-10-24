@@ -1,0 +1,31 @@
+{% extends '_layouts/_main' %}
+{% block header %}
+  <div class="grid-container margin-vertical-3">
+    <img src="/sidetrackhere-header.svg" alt="{{ siteName }}"/>
+  </div>
+{% endblock header %}
+{% block content %}
+  <article class="grid-container margin-bottom-3">
+    <div class="grid-x grid-margin-x">
+      <div class="cell medium-10 medium-offset-1">
+        {% block page %}{% endblock %}
+      </div>
+    </div>
+  </article>
+  {% if craft.app.request.segments|last == 'contact-us' %}
+    {% include '_vendor/gmaps' with {
+      googleApi : 'AIzaSyANCUTHyJQqnXHmDnQ77zTMvZ0bRa8jS8o',
+      lat: contactInfo.latitude,
+      long: contactInfo.longitude,
+      size: '400'
+    } %}
+  {% elseif craft.app.request.segments|last == 'newsletter' %}
+    <div class="grid-container margin-vertical-3">
+      <div class="grid-x grid-margin-x">
+        <div class="cell auto">
+          {% include '_vendor/campaignMonitor' ignore missing %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
