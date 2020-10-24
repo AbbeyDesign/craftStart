@@ -1,0 +1,3 @@
+{%- if craft.app.plugins.isPluginEnabled('adminbar') %}
+  {{ adminbar({ entry: entry ?? null }) }}
+{% endif -%}

@@ -13,11 +13,11 @@
 {% js %}
 WebFont.load({ google: { families: ['Bitter','Teko'] } });
 {% endjs %}
-{% include '_vendor/google_tagManager' with {
+{% include '_vendor/google/google_tagManager' with {
   containerID : 'PHFMNFV'
 } %}
 {#- PLUGINS ----#}
-{{ adminbar({ entry: entry ?? null }) }}
+{% include '_vendor/adminbar' ignore missing %}
 {#- HTML ----#}
 {% html at beginBody %}
 <span>
