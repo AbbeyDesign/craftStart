@@ -1,0 +1,20 @@
+{# {% include '_vendor/gmaps' with {
+  googleApi : 'GOOGLEAPI',
+  lat: contactInfo.latitude,
+  long: contactInfo.longitude,
+  size: '400px'
+} %} #}
+
+{% do 
+  view.registerJsFile('//maps.googleapis.com/maps/api/js?key=' ~ googleApi) %}
+{% js "/js/min/gmaps.min.js" %}
+{% js %}
+var map; $(document).ready(function(){ map = new GMaps({ div: '#map', lat:
+{{ lat }}, lng:
+{{ long }}
+}); map.addMarker({ lat:
+{{ lat }}, lng:
+{{ long }}
+}); });
+{% endjs %}
+<div id="map" style="{{ 'height\:'~size~';' }}"></div>
