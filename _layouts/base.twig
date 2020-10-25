@@ -13,8 +13,8 @@
 {% js %}
 WebFont.load({ google: { families: ['Bitter','Teko'] } });
 {% endjs %}
-{% include '_vendor/google_tagManager' with {
-  containerID : 'PHFMNFV'
+{% include '_sub/_vendor/google/google_tagManager' with {
+  containerID : getenv('GTM_CONTAINER_ID')
 } %}
 {#- PLUGINS ----#}
 {{ adminbar({ entry: entry ?? null }) }}
