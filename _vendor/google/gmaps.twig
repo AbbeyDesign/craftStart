@@ -15,6 +15,6 @@ var map; $(document).ready(function(){ map = new GMaps({ div: '#map', lat:
 }); map.addMarker({ lat:
 {{ lat }}, lng:
 {{ long }}
-}); mapTypeControl: false, });
+}); });
 {% endjs %}
 <div id="map" style="{{ 'height\:'~size~';' }}"></div>
