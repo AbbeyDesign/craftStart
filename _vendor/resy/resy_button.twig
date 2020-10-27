@@ -1,0 +1,11 @@
+<a href="{{ getenv('RESY_URL') }}" id="resyButton-{{ getenv('RESY_BUTTON') }}">
+  {{ 'Book your '~siteName~' reservation on Resy' }}
+</a>
+<script src="https://widgets.resy.com/embed.js"></script>
+<script>
+  resyWidget.addButton(document.getElementById('resyButton-{{getenv('RESY_BUTTON')}}'), {
+    "venueId": {{ getenv('RESY_VENUE_ID') }},
+    "apiKey": "{{ getenv('RESY_API') }}",
+    "replace": true
+  });
+</script>
