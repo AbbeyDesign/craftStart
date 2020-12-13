@@ -13,7 +13,7 @@
         {% endif %}
         {% for asset in block.image.all() %}
           {% if asset %}
-            <img class="float-center" src="{{ asset.url }}" alt=""/>
+            <img class="float-center" src="{{ asset.url }}" alt="{{ asset.title }}"/>
           {% endif %}
         {% endfor %}
         {% if imageClass is defined and not null %}
