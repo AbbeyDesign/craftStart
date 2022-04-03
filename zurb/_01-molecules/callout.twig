@@ -29,7 +29,7 @@
 <div{{ attr(callout_attributes) }}{% if callout_closable %} {{ 'data-closable'|raw }} {% endif %}>
   {% block callout_content %}{% endblock callout_content %}
   {% if callout_closable %}
-    {% include '_00-atoms/button_close' with {
+    {% include '_sub/zurb/_00-atoms/button_close' with {
       button_label : "Dismiss Alert"
     } %}
   {% endif %}
